@@ -65,7 +65,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: 2 by 3
+  m_LastLoadedLayoutName: 
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 442}
   m_MaxSize: {x: 22012, y: 10021}
   vertical: 0
-  controlID: 1755
+  controlID: 21
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 1756
+  controlID: 22
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -289,9 +289,9 @@ MonoBehaviour:
     height: 614
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e6260000
-    m_LastClickedID: 9958
-    m_ExpandedIDs: e0fbffff00000000e62600001c28000024280000
+    m_SelectedIDs: d6e7ffff
+    m_LastClickedID: -6186
+    m_ExpandedIDs: c2eeffffd6f0ffffe2fbffff000000001a270000562800005e280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -307,7 +307,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 0
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 7}
     m_SearchString: 
   m_ExpandedScenes:
   - LeadingMusic
@@ -391,13 +391,13 @@ MonoBehaviour:
   - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "C:\\Users\\Jaime\\Documents\\Ingenier\xEDa en Desarrollo de
-    VJ y RV\\2017 - 2\\Taller de Videojuegos 2D\\Prueba de Concepto"
+    VJ y RV\\2017 - 2\\Taller de Videojuegos 2D\\LeadingMusic"
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0c260000
-    m_LastClickedID: 9740
-    m_ExpandedIDs: 00000000fa240000d62500000a26000000ca9a3bffffff7f
+    m_SelectedIDs: 3e260000
+    m_LastClickedID: 9790
+    m_ExpandedIDs: 000000002a250000082600003c26000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -425,7 +425,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fa240000d625000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000002a250000082600003c260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -477,7 +477,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 419.5}
+    m_ScrollPosition: {x: 0, y: 1676}
     m_GridSize: 64
   m_DirectoriesAreaWidth: 110
 --- !u!114 &15

@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeadingMusic.CSharp", "LeadingMusic.CSharp.csproj", "{7CEDB18C-8BE4-2C99-A4C3-CB3701FAAE95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeadingMusic.CSharp.Editor", "LeadingMusic.CSharp.Editor.csproj", "{FFD66C1A-E172-A99B-A551-A1D5E0E2A0E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CEDB18C-8BE4-2C99-A4C3-CB3701FAAE95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CEDB18C-8BE4-2C99-A4C3-CB3701FAAE95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CEDB18C-8BE4-2C99-A4C3-CB3701FAAE95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CEDB18C-8BE4-2C99-A4C3-CB3701FAAE95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFD66C1A-E172-A99B-A551-A1D5E0E2A0E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD66C1A-E172-A99B-A551-A1D5E0E2A0E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD66C1A-E172-A99B-A551-A1D5E0E2A0E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD66C1A-E172-A99B-A551-A1D5E0E2A0E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

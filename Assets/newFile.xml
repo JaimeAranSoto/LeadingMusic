@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<ArrayOfAudioTrack xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AudioTrack>
+    <id>0</id>
+    <name>cambiando</name>
+    <url>Assets/Audio/vida_bonita.mp3</url>
+    <loop>true</loop>
+    <loopCount>0</loopCount>
+    <BPM>86</BPM>
+  </AudioTrack>
+  <AudioTrack>
+    <id>1</id>
+    <name>Kill everyone ft. Pitbull</name>
+    <url>Assets/Audio/kill_everyone.ogg</url>
+    <loop>true</loop>
+    <loopCount>0</loopCount>
+    <BPM>150</BPM>
+  </AudioTrack>
+</ArrayOfAudioTrack>

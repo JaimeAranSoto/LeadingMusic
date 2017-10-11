@@ -2,32 +2,40 @@
 <ArrayOfAudioTrack xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<AudioTrack>
 		<id>0</id>
-		<name>La vida es bonita</name>
-		<url>Assets/Audio/vida_bonita.mp3</url>
+		<name>Fiend</name>
+		<url>Assets/Audio/Fiend short.ogg</url>
 		<loop>true</loop>
 		<loopCount>0</loopCount>
-		<BPM>86</BPM>
+		<BPM>90</BPM>
 	</AudioTrack>
 	<AudioTrack>
 		<id>1</id>
-		<name>Kill everyone ft. Pitbull</name>
-		<url>Assets/Audio/kill_everyone.ogg</url>
-		<loop>true</loop>
-		<loopCount>0</loopCount>
-		<BPM>150</BPM>
-	</AudioTrack>
-	<AudioTrack>
-		<id>2</id>
-		<name>Editado</name>
-		<url>Assets/Audio/editado.mp3</url>
+		<name>snap</name>
+		<url>/Audio/snap</url>
 		<loop>false</loop>
 		<loopCount>0</loopCount>
 		<BPM>0</BPM>
 	</AudioTrack>
 	<AudioTrack>
+		<id>2</id>
+		<name>Garage</name>
+		<url>Assets/Audio/Garage.mp3</url>
+		<loop>true</loop>
+		<loopCount>0</loopCount>
+		<BPM>0</BPM>
+	</AudioTrack>
+	<AudioTrack>
 		<id>3</id>
-		<name>Kick</name>
-		<url>Assets/Audio/kick.wav</url>
+		<name>sonido</name>
+		<url>Assets/Audio/sonido.aac</url>
+		<loop>false</loop>
+		<loopCount>0</loopCount>
+		<BPM>0</BPM>
+	</AudioTrack>
+	<AudioTrack>
+		<id>4</id>
+		<name>kick</name>
+		<url>kick.mp3</url>
 		<loop>false</loop>
 		<loopCount>0</loopCount>
 		<BPM>0</BPM>

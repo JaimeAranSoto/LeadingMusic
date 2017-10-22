@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<TitleMenuData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <url>new.exe</url>
+  <backColor>
+    <r>0</r>
+    <g>0</g>
+    <b>0</b>
+    <a>1</a>
+  </backColor>
+  <leadColor>
+    <r>1</r>
+    <g>1</g>
+    <b>1</b>
+    <a>1</a>
+  </leadColor>
+  <description>el mejor juego de la vida</description>
+</TitleMenuData>

@@ -30,7 +30,7 @@ public class SoundManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        XMLManager.Serializar(audioTracks, "Assets/newFile.xml");
+
         audioTracks = XMLManager.Deserializar<AudioTrack[]>("Assets/tracks.xml");
     }
 
@@ -72,6 +72,5 @@ public class SoundManager : MonoBehaviour
         source.clip = getClip(name);
         source.loop = getAudioTrack(name).loop;
         source.Play();
-
     }
 }

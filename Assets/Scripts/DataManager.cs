@@ -12,7 +12,7 @@ public class ArtistaData
     public List<InstrumentData> instruments = new List<InstrumentData>();
     public bool contratado;
     public Disco disco;
-    public Concierto concierto;
+    public Concierto concierto = new Concierto();
     public int tiempoConcierto = 60;
     [Range(0, 100)]
     public int porcentajeGanancias;
@@ -41,20 +41,59 @@ public class InstrumentData
     }
 }
 
+[Serializable]
+public class TitleMenuData
+{
+    public string url;
+    public Color backColor;
+    public Color leadColor;
+    public string description;
+    public TitleMenuData()
+    {
+
+    }
+
+}
+
 public class DataManager : Singleton<DataManager>
 {
 
     public int currentMoney;
     public List<Instrument> instruments;
     public List<ArtistaData> artists;
+    public TitleMenuData titleData;
+    public Camera cam;
+    public ArtistaData artistaActual; //indica cual es el indice de los datos del artista actual, así las acciones de artista sabe a cual se refiere;
     // Use this for initialization
     void Start()
     {
+
+        titleData = new TitleMenuData();
+        titleData.url = "new.exe";
+        titleData.description = "el mejor juego de la vida";
+        titleData.leadColor = Color.white;
+        titleData.backColor = Color.black;
+        artistaActual = null;
+
+        artists = XMLManager.Deserializar<List<ArtistaData>>("Assets/artistas.xml");
+
+        //XMLManager.Serializar(artists, "Assets/artistas.xml");
+        // titleData = XMLManager.Deserializar<TitleMenuData>("Assets/title.xml");
+        //cam.backgroundColor = titleData.backColor;
         InvokeRepeating("timerVenta", 2, 1);
+        InvokeRepeating("timerConcierto", 0, 1);
 
     }
 
     // Update is called once per frame
+
+    void timerConcierto()
+    {
+        foreach (ArtistaData artista in artists)
+        {
+            artista.concierto.substractTiempo(1);
+        }
+    }
     void timerVenta()
     {
         foreach (ArtistaData artista in artists)
@@ -77,16 +116,17 @@ public class DataManager : Singleton<DataManager>
 
     public bool HasInstrumentLevel(List<InstrumentData> list)
     {
-       foreach(InstrumentData inst in list)
-       {
+        foreach (InstrumentData inst in list)
+        {
 
             if (getInstrument(inst.name) != null)
             {
-                if(inst.level< getInstrument(inst.name).inst.level)
+                if (inst.level < getInstrument(inst.name).inst.level)
                 {
                     return false;
                 }
-            }else
+            }
+            else
             {
                 return false;
             }
@@ -94,7 +134,8 @@ public class DataManager : Singleton<DataManager>
         if (list.Count > 0)
         {
             return true;
-        }else
+        }
+        else
         {
             return false;
         }
@@ -103,11 +144,16 @@ public class DataManager : Singleton<DataManager>
     {
         for (int j = 0; j < instruments.Count; j++)
         {
-            if (instruments[j].name.Equals(instName)){
+            if (instruments[j].name.Equals(instName))
+            {
                 return instruments[j];
             }
         }
         return null;
     }
-
+    public void AddMoney(int newMoney)
+    {
+        this.currentMoney += newMoney;
+    }
+    
 }

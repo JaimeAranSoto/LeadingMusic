@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ArrayOfArtistaData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ArtistaData>
+		<nombre>Los perros malos</nombre>
+		<genero>Metal</genero>
+		<contratado>false</contratado>
+		<concierto>
+			<tiempo>0</tiempo>
+			<ganancia>0</ganancia>
+			<activo>false</activo>
+		</concierto>
+		<tiempoConcierto>43</tiempoConcierto>
+		<porcentajeGanancias>27</porcentajeGanancias>
+		<talento>24</talento>
+		<influencia>3</influencia>
+	</ArtistaData>
+	<ArtistaData>
+		<nombre>Los gatos cuicos</nombre>
+		<genero>Pop</genero>
+		<contratado>true</contratado>
+		<concierto>
+			<tiempo>0</tiempo>
+			<ganancia>0</ganancia>
+			<activo>false</activo>
+		</concierto>
+		<tiempoConcierto>45</tiempoConcierto>
+		<porcentajeGanancias>20</porcentajeGanancias>
+		<talento>40</talento>
+		<influencia>3</influencia>
+	</ArtistaData>
+	<ArtistaData>
+		<nombre>Las ratas campestres</nombre>
+		<genero>Country</genero>
+		<contratado>true</contratado>
+		<concierto>
+			<tiempo>0</tiempo>
+			<ganancia>0</ganancia>
+			<activo>false</activo>
+		</concierto>
+		<tiempoConcierto>55</tiempoConcierto>
+		<porcentajeGanancias>40</porcentajeGanancias>
+		<talento>83</talento>
+		<influencia>5</influencia>
+	</ArtistaData>
+	<ArtistaData>
+		<nombre>Los camellos locos</nombre>
+		<genero>Latin</genero>
+		<contratado>false</contratado>
+		<concierto>
+			<tiempo>0</tiempo>
+			<ganancia>0</ganancia>
+			<activo>false</activo>
+		</concierto>
+		<tiempoConcierto>12</tiempoConcierto>
+		<porcentajeGanancias>12</porcentajeGanancias>
+		<talento>14</talento>
+		<influencia>1</influencia>
+	</ArtistaData>
+</ArrayOfArtistaData>

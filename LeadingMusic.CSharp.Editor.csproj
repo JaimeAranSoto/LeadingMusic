@@ -126,12 +126,13 @@
     <Compile Include="Assets\SimpleSpectrum\Scripts\Editor\SimpleSpectrumEditor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\HOLA.xml" />
     <None Include="Assets\SimpleSpectrum\Misc\lightweightGradientLerp.shader" />
     <None Include="Assets\SimpleSpectrum\Misc\lightweightGradientLerpSprite.shader" />
     <None Include="Assets\SimpleSpectrum\SimpleSpectrum_Changelog.txt" />
     <None Include="Assets\SimpleSpectrum\SimpleSpectrum_DOCUMENTATION.txt" />
+    <None Include="Assets\artistas.xml" />
     <None Include="Assets\newFile.xml" />
+    <None Include="Assets\title.xml" />
     <None Include="Assets\tracks.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

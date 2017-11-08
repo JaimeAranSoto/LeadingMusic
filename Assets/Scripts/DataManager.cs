@@ -6,10 +6,12 @@ using UnityEngine;
 [Serializable]
 public class ArtistaData
 {
+   
     public enum Genre { Rock, Metal, Latin, Pop, Country, Rap };
     public string nombre;
     public Genre genero;
-    public List<InstrumentData> instruments = new List<InstrumentData>();
+
+    public List<InstrumentListData> instruments = new List<InstrumentListData>();
     public bool contratado;
     public Disco disco;
     public Concierto concierto = new Concierto();
@@ -54,7 +56,13 @@ public class TitleMenuData
     }
 
 }
-
+[Serializable]
+public class InstrumentListData
+{
+    public int index;
+    public InstrumentData.InstrumentName name;
+    public int levelRequired;
+}
 public class DataManager : Singleton<DataManager>
 {
 
@@ -62,6 +70,7 @@ public class DataManager : Singleton<DataManager>
     public List<Instrument> instruments;
     public List<ArtistaData> artists;
     public TitleMenuData titleData;
+    public List<InstrumentListData> instrumentReqList;
     public Camera cam;
     public ArtistaData artistaActual; //indica cual es el indice de los datos del artista actual, así las acciones de artista sabe a cual se refiere;
     // Use this for initialization
@@ -76,10 +85,14 @@ public class DataManager : Singleton<DataManager>
         artistaActual = null;
 
         artists = XMLManager.Deserializar<List<ArtistaData>>("Assets/artistas.xml");
+        instrumentReqList = XMLManager.Deserializar<List<InstrumentListData>>("Assets/instrumentRequirments.xml");
 
         //XMLManager.Serializar(artists, "Assets/artistas.xml");
+        //XMLManager.Serializar(instrumentReqList, "Assets/instrumentRequirments.xml");
+
         // titleData = XMLManager.Deserializar<TitleMenuData>("Assets/title.xml");
         //cam.backgroundColor = titleData.backColor;
+        Invoke("setRequerimientos", 0.2f);
         InvokeRepeating("timerVenta", 2, 1);
         InvokeRepeating("timerConcierto", 0, 1);
 
@@ -94,6 +107,18 @@ public class DataManager : Singleton<DataManager>
             artista.concierto.substractTiempo(1);
         }
     }
+
+    void setRequerimientos()
+    {
+        for(int i = 0; i < instrumentReqList.Count; i++)
+        {
+            if(artists[instrumentReqList[i].index] != null)
+            {
+                artists[instrumentReqList[i].index].instruments.Add(instrumentReqList[i]);
+            }
+        }
+    }
+
     void timerVenta()
     {
         foreach (ArtistaData artista in artists)
@@ -114,14 +139,14 @@ public class DataManager : Singleton<DataManager>
         }
     }
 
-    public bool HasInstrumentLevel(List<InstrumentData> list)
+    public bool HasInstrumentLevel(List<InstrumentListData> list)
     {
-        foreach (InstrumentData inst in list)
+        foreach (InstrumentListData inst in list)
         {
 
             if (getInstrument(inst.name) != null)
             {
-                if (inst.level < getInstrument(inst.name).inst.level)
+                if (inst.levelRequired < getInstrument(inst.name).inst.level)
                 {
                     return false;
                 }

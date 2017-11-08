@@ -20,9 +20,9 @@ public class ArtistRequirements : MonoBehaviour {
             transform.localScale = new Vector2(1 + 0.2f * (float)Mathf.Sin((float)Time.time), 1 + 0.2f * (float)Mathf.Sin((float)Time.time));
             string instrumentsList = "";
 
-            foreach (InstrumentData instrumento in artista.instruments)
+            foreach (InstrumentListData instrumento in artista.instruments)
             {
-                instrumentsList += instrumento.name + " LVL (" + instrumento.level + ")\n";
+                instrumentsList += instrumento.name + " LVL (" + instrumento.levelRequired + ")\n";
 
             }
                 string text = "Requiere:\n" + instrumentsList;

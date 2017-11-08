@@ -6,7 +6,7 @@ public class Sampler : TimeLine
 {
     public List<SamplerPad> pads;
     public int actualIndex;
-    private int[] beatList;
+    public int[] beatList;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class Sampler : TimeLine
             pads.Add(child.GetComponent<SamplerPad>());
         }
         actualIndex = 0;
-        beatList = new int[] { 0, 1, 2, 3 };
+  
 
     }
 

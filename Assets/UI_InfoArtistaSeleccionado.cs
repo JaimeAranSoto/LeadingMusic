@@ -39,7 +39,8 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     public void MostrarDatos(ArtistaData data)
     {
         Button contratar = textoDespedir.GetComponentInParent<Button>();
-        textoGenero.text = data.genero.ToString();
+        if (data.genero != null)
+            textoGenero.text = data.genero.ToString();
         if (!data.contratado)
         {
             contratar.onClick.AddListener(Contratar);

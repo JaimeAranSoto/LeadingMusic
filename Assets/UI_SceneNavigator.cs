@@ -85,7 +85,7 @@ public class UI_SceneNavigator : MonoBehaviour
     }
     public IEnumerator showGrabar()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.6f);
         resetPaneles();
         panelTitulo.SetActive(true);
         grabar.SetActive(true);

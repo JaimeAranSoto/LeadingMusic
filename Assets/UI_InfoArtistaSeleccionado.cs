@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
@@ -13,6 +14,7 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     void Start()
     {
         InvokeRepeating("MostrarDatos", 2, 1);
+        
     }
 
     // Update is called once per frame
@@ -22,8 +24,15 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     }
     public void Contratar()
     {
-        DataManager.Instance.artistaActual.contratado = true;
-        MostrarDatos(DataManager.Instance.artistaActual);
+
+        if (DataManager.Instance.HasInstrumentLevel(DataManager.Instance.artistaActual.instruments))
+        {
+            DataManager.Instance.artistaActual.contratado = true;
+            MostrarDatos(DataManager.Instance.artistaActual);
+            
+        }
+        
+        
     }
     public void Despedir()
     {
@@ -33,14 +42,15 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     }
     public void MostrarDatos()
     {
-        if (this.gameObject.active)
+        if (gameObject.active)
             MostrarDatos(DataManager.Instance.artistaActual);
     }
     public void MostrarDatos(ArtistaData data)
     {
         Button contratar = textoDespedir.GetComponentInParent<Button>();
-        if (data.genero != null)
-            textoGenero.text = data.genero.ToString();
+       
+        textoGenero.text = data.genero.ToString();
+
         if (!data.contratado)
         {
             contratar.onClick.AddListener(Contratar);

@@ -64,6 +64,7 @@ public class UI_SceneNavigator : MonoBehaviour
             GameObject nuevo = Instantiate(prefabBarraArtistas, artistas.GetComponentInChildren<GridLayoutGroup>().gameObject.transform);
             nuevo.GetComponent<UI_BarraArtista>().data = list[i];
         }
+        DataManager.Instance.artistaActual = list[0];
     }
     public void showSeleccionAccion()
     {

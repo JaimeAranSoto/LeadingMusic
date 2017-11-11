@@ -6,7 +6,7 @@ using UnityEngine;
 [Serializable]
 public class ArtistaData
 {
-   
+
     public enum Genre { Rock, Metal, Latin, Pop, Country, Rap };
     public string nombre;
     public Genre genero;
@@ -24,9 +24,7 @@ public class ArtistaData
     public int influencia;
 
     public ArtistaData()
-    {
-
-    }
+    { }
 }
 
 [Serializable]
@@ -67,9 +65,10 @@ public class DataManager : Singleton<DataManager>
 {
 
     public int currentMoney;
-    public List<Instrument> instruments;
+    public List<InstrumentData> instruments;
     public List<ArtistaData> artists;
     public TitleMenuData titleData;
+    [HideInInspector]
     public List<InstrumentListData> instrumentReqList;
     public Camera cam;
     public ArtistaData artistaActual; //indica cual es el indice de los datos del artista actual, así las acciones de artista sabe a cual se refiere;
@@ -77,11 +76,7 @@ public class DataManager : Singleton<DataManager>
     void Start()
     {
 
-        titleData = new TitleMenuData();
-        titleData.url = "new.exe";
-        titleData.description = "el mejor juego de la vida";
-        titleData.leadColor = Color.white;
-        titleData.backColor = Color.black;
+               
         artistaActual = null;
 
         artists = XMLManager.Deserializar<List<ArtistaData>>("Assets/artistas.xml");
@@ -89,9 +84,7 @@ public class DataManager : Singleton<DataManager>
 
         //XMLManager.Serializar(artists, "Assets/artistas.xml");
         //XMLManager.Serializar(instrumentReqList, "Assets/instrumentRequirments.xml");
-
-        // titleData = XMLManager.Deserializar<TitleMenuData>("Assets/title.xml");
-        //cam.backgroundColor = titleData.backColor;
+                   
         Invoke("setRequerimientos", 0.2f);
         InvokeRepeating("timerVenta", 2, 1);
         InvokeRepeating("timerConcierto", 0, 1);
@@ -110,9 +103,9 @@ public class DataManager : Singleton<DataManager>
 
     void setRequerimientos()
     {
-        for(int i = 0; i < instrumentReqList.Count; i++)
+        for (int i = 0; i < instrumentReqList.Count; i++)
         {
-            if(artists[instrumentReqList[i].index] != null)
+            if (artists[instrumentReqList[i].index] != null)
             {
                 artists[instrumentReqList[i].index].instruments.Add(instrumentReqList[i]);
             }
@@ -146,7 +139,7 @@ public class DataManager : Singleton<DataManager>
 
             if (getInstrument(inst.name) != null)
             {
-                if (inst.levelRequired < getInstrument(inst.name).inst.level)
+                if (inst.levelRequired < getInstrument(inst.name).level)
                 {
                     return false;
                 }
@@ -165,7 +158,7 @@ public class DataManager : Singleton<DataManager>
             return false;
         }
     }
-    public Instrument getInstrument(InstrumentData.InstrumentName instName)
+    public InstrumentData getInstrument(InstrumentData.InstrumentName instName)
     {
         for (int j = 0; j < instruments.Count; j++)
         {
@@ -180,5 +173,5 @@ public class DataManager : Singleton<DataManager>
     {
         this.currentMoney += newMoney;
     }
-    
+
 }

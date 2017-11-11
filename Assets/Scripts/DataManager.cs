@@ -30,10 +30,12 @@ public class ArtistaData
 [Serializable]
 public class InstrumentData
 {
-    public enum InstrumentName { Guitar, Piano, Mixer, Microphone, Interface, Software, Brass, Drums };
-    public InstrumentName name;
+    //public enum String { Guitar, Piano, Mixer, Microphone, Interface, Software, Brass, Drums };
+    public String name;
     public int level;
-    public int[] cost = { 0, 1000, 2000, 2600, 3400 };
+    
+    public int[] cost = new int[5];
+
 
     public InstrumentData()
     {
@@ -58,7 +60,7 @@ public class TitleMenuData
 public class InstrumentListData
 {
     public int index;
-    public InstrumentData.InstrumentName name;
+    public string name;
     public int levelRequired;
 }
 public class DataManager : Singleton<DataManager>
@@ -70,7 +72,7 @@ public class DataManager : Singleton<DataManager>
     public TitleMenuData titleData;
     [HideInInspector]
     public List<InstrumentListData> instrumentReqList;
-    public Camera cam;
+
     public ArtistaData artistaActual; //indica cual es el indice de los datos del artista actual, así las acciones de artista sabe a cual se refiere;
     // Use this for initialization
     void Start()
@@ -81,7 +83,7 @@ public class DataManager : Singleton<DataManager>
 
         artists = XMLManager.Deserializar<List<ArtistaData>>("Assets/artistas.xml");
         instrumentReqList = XMLManager.Deserializar<List<InstrumentListData>>("Assets/instrumentRequirments.xml");
-
+        XMLManager.Serializar(instruments, "Assets/instrumentos.xml");
         //XMLManager.Serializar(artists, "Assets/artistas.xml");
         //XMLManager.Serializar(instrumentReqList, "Assets/instrumentRequirments.xml");
                    
@@ -158,7 +160,7 @@ public class DataManager : Singleton<DataManager>
             return false;
         }
     }
-    public InstrumentData getInstrument(InstrumentData.InstrumentName instName)
+    public InstrumentData getInstrument(String instName)
     {
         for (int j = 0; j < instruments.Count; j++)
         {

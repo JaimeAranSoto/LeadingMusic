@@ -131,7 +131,9 @@
     <None Include="Assets\SimpleSpectrum\SimpleSpectrum_Changelog.txt" />
     <None Include="Assets\SimpleSpectrum\SimpleSpectrum_DOCUMENTATION.txt" />
     <None Include="Assets\artistas.xml" />
+    <None Include="Assets\insto.xml" />
     <None Include="Assets\instrumentRequirments.xml" />
+    <None Include="Assets\instrumentos.xml" />
     <None Include="Assets\newFile.xml" />
     <None Include="Assets\title.xml" />
     <None Include="Assets\tracks.xml" />

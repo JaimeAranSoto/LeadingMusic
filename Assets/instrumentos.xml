@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<ArrayOfInstrumentData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <InstrumentData>
+    <name>Guitarra</name>
+    <level>2</level>
+    <cost>
+      <int>0</int>
+      <int>1000</int>
+      <int>2000</int>
+      <int>2600</int>
+      <int>3400</int>
+    </cost>
+  </InstrumentData>
+  <InstrumentData>
+    <name>Compresor</name>
+    <level>0</level>
+    <cost>
+      <int>0</int>
+      <int>1400</int>
+    </cost>
+  </InstrumentData>
+  <InstrumentData>
+    <name>Sampler</name>
+    <level>1</level>
+    <cost>
+      <int>0</int>
+      <int>1000</int>
+      <int>2000</int>
+    </cost>
+  </InstrumentData>
+</ArrayOfInstrumentData>

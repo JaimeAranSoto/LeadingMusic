@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class RythmManager : Singleton<RythmManager>
 {
-    [Range(0,300)]
+    [Range(0, 300)]
     public float BPM;
-    [Range(0,100)]
+    [Range(0, 100)]
     public int totalBeatCount;
 
     public AudioSource music;
@@ -19,12 +19,12 @@ public class RythmManager : Singleton<RythmManager>
     private bool started;
     private double sampleTime;
     private double currentTime;
-    public GameObject winText;
-    private int currentBeat= 0;
+
+    private int currentBeat = 0;
 
     [HideInInspector]
     public float maxQuality;
-   [HideInInspector]
+    [HideInInspector]
     public float currentQuality;
 
 
@@ -43,14 +43,14 @@ public class RythmManager : Singleton<RythmManager>
         music.Play();
         Invoke("terminarCancion", music.clip.length + 1);
         currentBeat = 0;
-    
+
     }
 
     void Update()
     {
         if (currentBeat < totalBeatCount)
         {
-            currentQuality -= 0.5f*Time.deltaTime;
+            currentQuality -= 0.5f * Time.deltaTime;
         }
         if (currentQuality < 0)
         {
@@ -65,7 +65,7 @@ public class RythmManager : Singleton<RythmManager>
         {
             if (music.timeSamples > currentTime)
             {
-                if (currentBeat <totalBeatCount)
+                if (currentBeat < totalBeatCount)
                 {
                     generateBeats();
                     currentTime += sampleTime;
@@ -79,7 +79,7 @@ public class RythmManager : Singleton<RythmManager>
     void generateBeats()
     {
         // Debug.Log((music.time - timePassed) * 120f);
-     
+
         foreach (TimeLine timeLine in timeLines)
         {
             timeLine.Beat(sampleTime);
@@ -93,13 +93,18 @@ public class RythmManager : Singleton<RythmManager>
         {
             timeLine.Stop();
         }
-        winText.SetActive(true);
-       
-        
+        metagame();
+
+
     }
     void metagame()
     {
-        winText.SetActive(false);
-        SceneNavigator.Instance.GoToArtists();
+
+        UI_SceneNavigator.Instance.showArtistas();
+    }
+    void OnEnable()
+    {
+        Start();
     }
 }
+

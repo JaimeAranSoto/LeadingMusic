@@ -77,6 +77,6 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
                 textoAccion.GetComponentInParent<Button>().interactable = false;
             }
         }
-        textoSueldo.text = "<b>$" + data.porcentajeGanancias.ToString() + "</b> en 1:30:02";
+        textoSueldo.text = "<b>$" + (-data.porcentajeGanancias).ToString() + "</b> en 1:30:02";
     }
 }

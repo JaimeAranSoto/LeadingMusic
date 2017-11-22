@@ -78,9 +78,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AccederCancion.cs" />
+    <Compile Include="Assets\BarraLimiter.cs" />
+    <Compile Include="Assets\Btn_Compra.cs" />
+    <Compile Include="Assets\Limiter.cs" />
     <Compile Include="Assets\Scripts\Beat.cs" />
     <Compile Include="Assets\Scripts\Concierto.cs" />
     <Compile Include="Assets\Scripts\DataManager.cs" />
+    <Compile Include="Assets\Scripts\DataTypes.cs" />
     <Compile Include="Assets\Scripts\DestroyBeats.cs" />
     <Compile Include="Assets\Scripts\DestroyOnCollide.cs" />
     <Compile Include="Assets\Scripts\Disco.cs" />

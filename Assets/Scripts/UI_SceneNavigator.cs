@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
 {
@@ -19,6 +20,7 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     public GameObject minigame;
     [Header("Panel grabación")]
     public GameObject grabar;
+    public GameObject prefabCancion;
     [Header("Panel de concierto")]
     public GameObject concierto;
     [Header("Panel de ensayo")]
@@ -55,7 +57,7 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     // Update is called once per frame
     void Update()
     {
-
+        panelTitulo.transform.GetChild(1).GetComponent<Text>().text = "$" + DataManager.Instance.currentMoney;
     }
 
     public void showArtistas()
@@ -66,17 +68,21 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
         artistas.SetActive(true);
 
         List<ArtistaData> list = DataManager.Instance.artists;
+
         //Eliminar barras actuales
-        foreach (Transform child in artistas.GetComponentInChildren<GridLayoutGroup>().gameObject.transform)
+        foreach (Transform child in artistas.GetComponentInChildren<VerticalLayoutGroup>().gameObject.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
+
         //Crear barras y asignar datos
         for (int i = 0; i < list.Count; i++)
         {
-            GameObject nuevo = Instantiate(prefabBarraArtistas, artistas.GetComponentInChildren<GridLayoutGroup>().gameObject.transform);
+            GameObject nuevo = Instantiate(prefabBarraArtistas, artistas.GetComponentInChildren<VerticalLayoutGroup>().gameObject.transform);
             nuevo.GetComponent<UI_BarraArtista>().data = list[i];
         }
+
+
         DataManager.Instance.artistaActual = list[0];
     }
     public void showSeleccionAccion()
@@ -104,13 +110,32 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
         panelTitulo.SetActive(true);
         grabar.SetActive(true);
         titulo.text = "Selecciona canción";
+        VerticalLayoutGroup g = grabar.GetComponentInChildren<VerticalLayoutGroup>();
+        for (int i = 0; i < DataManager.Instance.canciones.Count; i++)
+        {
+            GameObject cancion = Instantiate(prefabCancion, g.transform);
+            cancion.GetComponent<AccederCancion>().cancion = DataManager.Instance.canciones[i];
+        }
     }
+
+    /* public void showMinigame()
+     {
+         resetPaneles();
+         minigame.SetActive(true);
+     }
+     public void showMinigame(Cancion cancion)
+     {
+         resetPaneles();
+         minigame.GetComponent<AudioSource>().clip = cancion.clip;
+         minigame.GetComponentInChildren<RythmManager>().BPM = cancion.BPM;
+         minigame.SetActive(true);
+     }*/
+
     public void showMinigame()
     {
-        resetPaneles();
-        minigame.SetActive(true);
-
+        SceneManager.LoadScene("Minigame");
     }
+
     public void resetPaneles()
     {
         foreach (GameObject panel in paneles)
@@ -138,20 +163,19 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
         resetPaneles();
         titulo.text = "Tienda";
         panelTitulo.SetActive(true);
+
         tienda.SetActive(true);
         Transform layout = tienda.transform.GetChild(0);
+        for (int i = layout.childCount - 1; i >= 0; i--)
+        {
+            Destroy(layout.GetChild(i).gameObject);
+        }
         for (int i = 0; i < DataManager.Instance.instruments.Count; i++)
         {
             GameObject item = Instantiate(prefabItem, layout);
             InstrumentData instrument = DataManager.Instance.instruments[i];
-            item.transform.GetChild(1).GetComponent<Text>().text = instrument.name;
-            item.transform.GetChild(3).GetChild(0).GetComponent<Text>().text = instrument.level.ToString();
-            if (instrument.level < instrument.cost.Length)
-                item.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "Mejorar $" + instrument.cost[instrument.level + 1].ToString();
-            else
-            {
-                item.transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "MAX NIVEL";
-            }
+            item.GetComponent<Btn_Compra>().instrument = instrument;
+
         }
     }
     public void terminarConcierto()
@@ -180,6 +204,20 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
             showArtistas();
             return;
         }
+        if (concierto.active)
+        {
+            showArtistas();
+            return;
+        }
+        if (minigame.active)
+        {
+            showArtistas();
+            return;
+        }
 
+    }
+    public void animDinero()
+    {
+        panelTitulo.transform.GetChild(1).GetComponent<Animator>().SetTrigger("Cambio");
     }
 }

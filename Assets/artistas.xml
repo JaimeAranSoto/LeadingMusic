@@ -42,4 +42,18 @@
 		<talento>83</talento>
 		<influencia>5</influencia>
 	</ArtistaData>
+	<ArtistaData>
+		<nombre>Fashion girls</nombre>
+		<genero>Pop</genero>
+		<contratado>false</contratado>
+		<concierto>
+			<tiempo>0</tiempo>
+			<ganancia>0</ganancia>
+			<activo>false</activo>
+		</concierto>
+		<tiempoConcierto>44</tiempoConcierto>
+		<porcentajeGanancias>80</porcentajeGanancias>
+		<talento>15</talento>
+		<influencia>5</influencia>
+	</ArtistaData>
 </ArrayOfArtistaData>

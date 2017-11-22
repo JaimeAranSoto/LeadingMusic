@@ -8,9 +8,7 @@ public class SamplerPad : TimeLine
     public bool isNext;
     Vector3 touchPosWorld;
 
-    //Change me to change the touch phase used.
-    TouchPhase touchPhase = TouchPhase.Ended;
-    // Use this for initialization
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -47,12 +45,22 @@ public class SamplerPad : TimeLine
     }
     bool checkInput()
     {
-        if (Input.touchCount > 0)
+        Collider2D col = GetComponent<Collider2D>();
+        foreach (Touch touch in Input.touches)
+        {
+            if (col.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.position)))
+            {
+                return true;
+            }
+           
+        }
+        return false;
+       /* if (Input.touchCount > 0)
         {
             {
                 for (int i = 0; i < Input.touchCount; i++)
                 {
-                    if (Input.GetTouch(i).phase == touchPhase)
+                    if (Input.GetTouch(i).phase == TouchPhase.Stationary || Input.GetTouch(i).phase == TouchPhase.Moved)
                     {
                         touchPosWorld = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
                         Vector2 touchPosWorld2D = new Vector2(touchPosWorld.x, touchPosWorld.y);
@@ -66,7 +74,7 @@ public class SamplerPad : TimeLine
                 }
             }
         }
-        return false;
+        return false;*/
     }
 
 }

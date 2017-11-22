@@ -39,10 +39,10 @@ public class RythmManager : Singleton<RythmManager>
         currentTime = 0;
         sampleTime = (120f / BPM) * 44100;
         maxQuality = 45;
-        currentQuality = maxQuality * 0.6f;
-        music.Play();
-        Invoke("terminarCancion", music.clip.length + 1);
         currentBeat = 0;
+        currentQuality = maxQuality * 0.6f;
+        music.Play(44100);
+        Invoke("terminarCancion", music.clip.length + 1);
 
     }
 
@@ -100,7 +100,7 @@ public class RythmManager : Singleton<RythmManager>
     void metagame()
     {
 
-        UI_SceneNavigator.Instance.showArtistas();
+        //UI_SceneNavigator.Instance.showArtistas();
     }
     void OnEnable()
     {

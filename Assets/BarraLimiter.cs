@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BarraLimiter : MonoBehaviour {
     public float speed = 2.5f;
+    
 	// Use this for initialization
 	void Start () {
 		
@@ -19,6 +20,13 @@ public class BarraLimiter : MonoBehaviour {
         if(col.gameObject.tag == "Limiter")
         {
             Destroy(gameObject);
+        }
+    }
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if(col.gameObject.tag == "Linea")
+        {
+            transform.localScale -= new Vector3(0.7f*Time.deltaTime, 0, 0);
         }
     }
 }

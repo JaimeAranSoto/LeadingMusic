@@ -20,6 +20,6 @@ public class Limiter : TimeLine
     public override void Beat(double sampleTime)
     {
         GameObject barra = Instantiate(prefabBarra, transform, false);
-        barra.transform.localPosition = new Vector3(2.13f, -1.3f, 0);
+        barra.transform.localPosition = new Vector3(2.13f, Random.Range(-1.1f,1.1f), 0);
     }
 }

@@ -16,4 +16,12 @@
 		<clipPath>95 - The unleashed</clipPath>
 		<genero>Rock</genero>
 	</Cancion>
+	<Cancion>
+		<name>Fast Foot</name>
+		<BPM>128</BPM>
+		<tipo1>Limiter</tipo1>
+		<tipo2>Sampler</tipo2>
+		<clipPath>128 - Fast Foot</clipPath>
+		<genero>Electro</genero>
+	</Cancion>
 </ArrayOfCancion>

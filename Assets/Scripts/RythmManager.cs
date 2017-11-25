@@ -59,7 +59,7 @@ public class RythmManager : Singleton<RythmManager>
         {
             if (currentBeat < totalBeatCount)
             {
-                currentQuality -= 0.5f * Time.deltaTime;
+                currentQuality -= 2f * Time.deltaTime;
             }
             if (currentQuality < 0)
             {
@@ -109,7 +109,7 @@ public class RythmManager : Singleton<RythmManager>
     }
     void metagame()
     {
-        int ganancia= (int)((currentQuality / maxQuality) * 3000);
+        int ganancia= (int)((currentQuality / maxQuality) * 6000);
        
         DataManager.Instance.currentMoney += ganancia;
         SceneManager.LoadScene("Metagame");

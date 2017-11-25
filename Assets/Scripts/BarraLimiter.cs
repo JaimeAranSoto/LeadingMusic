@@ -12,7 +12,7 @@ public class BarraLimiter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+        transform.localPosition -= new Vector3(speed * Time.deltaTime, 0, 0);
         if (transform.localScale.x < 0)
         {
             RythmManager.Instance.currentQuality += 20;
@@ -33,7 +33,7 @@ public class BarraLimiter : MonoBehaviour {
     {
         if(col.gameObject.tag == "Linea")
         {
-            transform.localScale -= new Vector3(0.7f*Time.deltaTime, 0, 0);
+            transform.localScale -= new Vector3(0.9f*Time.deltaTime, 0, 0);
         }
     }
 }

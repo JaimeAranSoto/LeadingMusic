@@ -18,10 +18,10 @@ public class SamplerPad : TimeLine
     // Update is called once per frame
     void Update()
     {
-        if (checkInput() && isNext)
+        if (checkInput())
         {
             anim.SetTrigger("Pulsado");
-            RythmManager.Instance.currentQuality += 10;
+            RythmManager.Instance.currentQuality += 8;
             anim.SetBool("TieneSample", false);
             isNext = false;
         }
@@ -46,20 +46,26 @@ public class SamplerPad : TimeLine
     }
     public void Perder()
     {
-        RythmManager.Instance.currentQuality -= 3;
+        RythmManager.Instance.currentQuality -= 6;
     }
 
     bool checkInput()
     {
-
-        Collider2D col = GetComponent<Collider2D>();
-        foreach (Touch touch in Input.touches)
+        if (Input.touchCount < 1)
         {
-            if (col.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.position)))
+            return false;
+        }
+        Collider2D col = GetComponent<Collider2D>();
+        if (col.isActiveAndEnabled)
+        {
+            foreach (Touch touch in Input.touches)
             {
-                return true;
+                if (col.OverlapPoint(Camera.main.ScreenToWorldPoint(touch.position)))
+                {
+                    if (touch.phase == TouchPhase.Began)
+                        return true;
+                }
             }
-
         }
         return false;
         /* if (Input.touchCount > 0)

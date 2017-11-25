@@ -16,7 +16,7 @@ public class DestroyOnCollide : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col)
     {
         RythmManager.Instance.currentQuality -= qualityLoose;
-        RythmManager.Instance.fx_fail.Play();
+
         Destroy(col.gameObject);
     }
 }

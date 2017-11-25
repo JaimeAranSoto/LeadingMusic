@@ -60,11 +60,7 @@ public class Beat : MonoBehaviour
     void DestroyBeat()
     {
         RythmManager.Instance.currentQuality += 5;
-        if (!RythmManager.Instance.fx_win.isPlaying)
-        {
-            RythmManager.Instance.fx_win.pitch = 1 + Random.Range(-0.1f, 0.2f);
-            RythmManager.Instance.fx_win.Play();
-        }
+       
         Destroy(gameObject);
     }
     void OnMouseDown()

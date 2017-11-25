@@ -219,18 +219,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AccederCancion.cs" />
-    <Compile Include="Assets\BarraLimiter.cs" />
-    <Compile Include="Assets\Btn_Compra.cs" />
-    <Compile Include="Assets\Limiter.cs" />
-    <Compile Include="Assets\LimiterLinea.cs" />
+    <Compile Include="Assets\IndicadorCalidad.cs" />
+    <Compile Include="Assets\Scripts\AccederCancion.cs" />
+    <Compile Include="Assets\Scripts\BarraLimiter.cs" />
     <Compile Include="Assets\Scripts\Beat.cs" />
+    <Compile Include="Assets\Scripts\Btn_Compra.cs" />
+    <Compile Include="Assets\Scripts\CancionTitular.cs" />
     <Compile Include="Assets\Scripts\Concierto.cs" />
     <Compile Include="Assets\Scripts\DataManager.cs" />
     <Compile Include="Assets\Scripts\DataTypes.cs" />
     <Compile Include="Assets\Scripts\DestroyBeats.cs" />
     <Compile Include="Assets\Scripts\DestroyOnCollide.cs" />
     <Compile Include="Assets\Scripts\Disco.cs" />
+    <Compile Include="Assets\Scripts\Limiter.cs" />
+    <Compile Include="Assets\Scripts\LimiterLinea.cs" />
     <Compile Include="Assets\Scripts\RythmManager.cs" />
     <Compile Include="Assets\Scripts\Sampler.cs" />
     <Compile Include="Assets\Scripts\SamplerPad.cs" />
@@ -239,17 +241,19 @@
     <Compile Include="Assets\Scripts\TimeLine.cs" />
     <Compile Include="Assets\Scripts\UI_BarraArtista.cs" />
     <Compile Include="Assets\Scripts\UI_InfoArtistaSeleccionado.cs" />
+    <Compile Include="Assets\Scripts\UI_InfoCancion.cs" />
     <Compile Include="Assets\Scripts\UI_SceneNavigator.cs" />
     <Compile Include="Assets\Scripts\XMLManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\artistas.xml" />
-    <None Include="Assets\insto.xml" />
-    <None Include="Assets\instrumentRequirments.xml" />
-    <None Include="Assets\instrumentos.xml" />
-    <None Include="Assets\newFile.xml" />
-    <None Include="Assets\title.xml" />
-    <None Include="Assets\tracks.xml" />
+    <None Include="Assets\Resources\artistas.xml" />
+    <None Include="Assets\Resources\canciones.xml" />
+    <None Include="Assets\Resources\insto.xml" />
+    <None Include="Assets\Resources\instrumentRequirments.xml" />
+    <None Include="Assets\Resources\instrumentos.xml" />
+    <None Include="Assets\Resources\newFile.xml" />
+    <None Include="Assets\Resources\title.xml" />
+    <None Include="Assets\Resources\tracks.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

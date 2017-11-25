@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ArrayOfCancion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Cancion>
+		<name>Clean</name>
+		<BPM>120</BPM>
+		<tipo1>Sampler</tipo1>
+		<tipo2>Sampler</tipo2>
+		<clipPath>120 - Clean</clipPath>
+		<genero>Rock</genero>
+	</Cancion>
+	<Cancion>
+		<name>The unleashed</name>
+		<BPM>95</BPM>
+		<tipo1>Sampler</tipo1>
+		<tipo2>Limiter</tipo2>
+		<clipPath>95 - The unleashed</clipPath>
+		<genero>Rock</genero>
+	</Cancion>
+</ArrayOfCancion>

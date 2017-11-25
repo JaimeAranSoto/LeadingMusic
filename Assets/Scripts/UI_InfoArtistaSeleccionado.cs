@@ -13,8 +13,8 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("MostrarDatos", 2, 1);
-        
+        InvokeRepeating("MostrarDatos", 0, 2);
+
     }
 
     // Update is called once per frame
@@ -24,15 +24,10 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     }
     public void Contratar()
     {
+        DataManager.Instance.contratarArtista(DataManager.Instance.artistaActual);
 
-        if (DataManager.Instance.HasInstrumentLevel(DataManager.Instance.artistaActual.instruments))
-        {
-            DataManager.Instance.artistaActual.contratado = true;
-            MostrarDatos(DataManager.Instance.artistaActual);
-            
-        }
-        
-        
+        MostrarDatos(DataManager.Instance.artistaActual);
+
     }
     public void Despedir()
     {
@@ -42,13 +37,13 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     }
     public void MostrarDatos()
     {
-        if (gameObject.active)
+        if (gameObject.activeInHierarchy)
             MostrarDatos(DataManager.Instance.artistaActual);
     }
     public void MostrarDatos(ArtistaData data)
     {
         Button contratar = textoDespedir.GetComponentInParent<Button>();
-       
+
         textoGenero.text = data.genero.ToString();
 
         if (!data.contratado)
@@ -77,6 +72,6 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
                 textoAccion.GetComponentInParent<Button>().interactable = false;
             }
         }
-        textoSueldo.text = "<b>$" + (-data.porcentajeGanancias).ToString() + "</b> en 1:30:02";
+        textoSueldo.text = "Porcentaje de ganancia: <b>" + (data.porcentajeGanancias).ToString() + "%</b>";
     }
 }

@@ -51,7 +51,7 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
         paneles.Add(tienda);
 
         titulo = panelTitulo.GetComponentInChildren<Text>();
-        showMenuPrincipal();
+        showTitulo();
     }
 
     // Update is called once per frame
@@ -67,7 +67,7 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
         panelTitulo.SetActive(true);
         artistas.SetActive(true);
 
-        List<ArtistaData> list = DataManager.Instance.artists;
+        List<ArtistaData> list = DataManager.Instance.artistas;
 
         //Eliminar barras actuales
         foreach (Transform child in artistas.GetComponentInChildren<VerticalLayoutGroup>().gameObject.transform)
@@ -84,6 +84,12 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
 
 
         DataManager.Instance.artistaActual = list[0];
+    }
+    public void showTitulo()
+    {
+        resetPaneles();
+
+        pantallaTitulo.SetActive(true);
     }
     public void showSeleccionAccion()
     {
@@ -105,35 +111,35 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     }
     public IEnumerator showGrabar()
     {
-        yield return new WaitForSeconds(0.6f);
+
         resetPaneles();
         panelTitulo.SetActive(true);
         grabar.SetActive(true);
         titulo.text = "Selecciona canción";
+
         VerticalLayoutGroup g = grabar.GetComponentInChildren<VerticalLayoutGroup>();
+        for (int i = 0; i < g.transform.childCount; i++)
+        {
+            Destroy(g.transform.GetChild(i).gameObject);
+        }
+
         for (int i = 0; i < DataManager.Instance.canciones.Count; i++)
         {
-            GameObject cancion = Instantiate(prefabCancion, g.transform);
-            cancion.GetComponent<AccederCancion>().cancion = DataManager.Instance.canciones[i];
+            if (DataManager.Instance.canciones[i].genero == DataManager.Instance.artistaActual.genero)
+            {
+
+
+                GameObject cancion = Instantiate(prefabCancion, g.transform);
+                cancion.GetComponent<AccederCancion>().cancion = DataManager.Instance.canciones[i];
+                yield return new WaitForSeconds(0.05f);
+            }
         }
     }
 
-    /* public void showMinigame()
-     {
-         resetPaneles();
-         minigame.SetActive(true);
-     }
-     public void showMinigame(Cancion cancion)
-     {
-         resetPaneles();
-         minigame.GetComponent<AudioSource>().clip = cancion.clip;
-         minigame.GetComponentInChildren<RythmManager>().BPM = cancion.BPM;
-         minigame.SetActive(true);
-     }*/
 
     public void showMinigame()
     {
-        SceneManager.LoadScene("Minigame");
+        SceneManager.LoadSceneAsync("Minigame");
     }
 
     public void resetPaneles()
@@ -188,28 +194,37 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     }
     public void goBack()
     {
-
-        if (tienda.active)
+        if (menuPrincipal.activeInHierarchy)
         {
-            showMenuPrincipal();
+            showTitulo();
             return;
         }
-        if (artistas.active)
-        {
-            showMenuPrincipal();
-            return;
-        }
-        if (ensayo.active)
+        if (grabar.activeInHierarchy)
         {
             showArtistas();
             return;
         }
-        if (concierto.active)
+        if (tienda.activeInHierarchy)
+        {
+            showMenuPrincipal();
+            return;
+        }
+        if (artistas.activeInHierarchy)
+        {
+            showMenuPrincipal();
+            return;
+        }
+        if (ensayo.activeInHierarchy)
         {
             showArtistas();
             return;
         }
-        if (minigame.active)
+        if (concierto.activeInHierarchy)
+        {
+            showArtistas();
+            return;
+        }
+        if (minigame.activeInHierarchy)
         {
             showArtistas();
             return;

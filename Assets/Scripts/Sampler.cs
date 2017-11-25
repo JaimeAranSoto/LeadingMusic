@@ -31,6 +31,8 @@ public class Sampler : TimeLine
             pad.Stop();
         }
     }
+   
+
     public override void Beat(double sampleTime)
     {
         int beat = beatList[actualIndex];

@@ -219,7 +219,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ActiveDependant.cs" />
+    <Compile Include="Assets\BotonGrabar.cs" />
+    <Compile Include="Assets\Ciudad_Boton.cs" />
+    <Compile Include="Assets\DatosGrabacion.cs" />
+    <Compile Include="Assets\DuracionCancionTxt.cs" />
     <Compile Include="Assets\IndicadorCalidad.cs" />
+    <Compile Include="Assets\InfoCiudad.cs" />
+    <Compile Include="Assets\Instrucciones.cs" />
+    <Compile Include="Assets\ResultadosCancion.cs" />
     <Compile Include="Assets\Scripts\AccederCancion.cs" />
     <Compile Include="Assets\Scripts\BarraLimiter.cs" />
     <Compile Include="Assets\Scripts\Beat.cs" />
@@ -237,7 +245,6 @@
     <Compile Include="Assets\Scripts\Sampler.cs" />
     <Compile Include="Assets\Scripts\SamplerPad.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
-    <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\TimeLine.cs" />
     <Compile Include="Assets\Scripts\UI_BarraArtista.cs" />
     <Compile Include="Assets\Scripts\UI_InfoArtistaSeleccionado.cs" />
@@ -248,6 +255,7 @@
   <ItemGroup>
     <None Include="Assets\Resources\artistas.xml" />
     <None Include="Assets\Resources\canciones.xml" />
+    <None Include="Assets\Resources\ciudades.xml" />
     <None Include="Assets\Resources\insto.xml" />
     <None Include="Assets\Resources\instrumentRequirments.xml" />
     <None Include="Assets\Resources\instrumentos.xml" />

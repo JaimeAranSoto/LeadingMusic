@@ -33,17 +33,20 @@ public class UI_InfoCancion : Singleton<UI_InfoCancion>
     public void mostrarActual()
     {
         Cancion c = DataManager.Instance.cancionActual;
-        bpm.text = "BPM: <color=lime>" + c.BPM + "</color>";
+        if (c != null)
+        {
+            bpm.text = "BPM: <color=lime>" + c.BPM + "</color>";
 
 
-        System.TimeSpan t = System.TimeSpan.FromSeconds((int)c.clip.length);
+            System.TimeSpan t = System.TimeSpan.FromSeconds((int)c.clip.length);
 
-        duracion.text = t.ToString() + "s";
-        icono1.sprite = Resources.Load<Sprite>("Iconos/" + c.tipo1);
+            duracion.text = t.ToString() + "s";
+            icono1.sprite = Resources.Load<Sprite>("Iconos/" + c.tipo1);
 
-        icono2.sprite = Resources.Load<Sprite>("Iconos/" + c.tipo2);
-        icono1.GetComponentInChildren<Text>().text = c.nivel1.ToString();
-        icono2.GetComponentInChildren<Text>().text = c.nivel2.ToString();
+            icono2.sprite = Resources.Load<Sprite>("Iconos/" + c.tipo2);
+            icono1.GetComponentInChildren<Text>().text = c.nivel1.ToString();
+            icono2.GetComponentInChildren<Text>().text = c.nivel2.ToString();
+        }
 
     }
     public void goToMinigame()

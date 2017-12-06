@@ -10,24 +10,28 @@ public class RythmManager : Singleton<RythmManager>
     public float BPM;
     [Range(0, 100)]
     public int totalBeatCount;
-
+    public ResultadosCancion resultados;
     public GameObject[] timeLines;
 
     private bool started;
     private double sampleTime;
     private double currentTime;
-
+    [HideInInspector]
+    public int ganancia;
     private int currentBeat = 0;
 
 
-    public float maxQuality=100;
+    public float maxQuality = 100;
 
-    public float currentQuality=20;
+    public float currentQuality = 20;
 
 
     public void Initiate()
     {
-        Start();
+        GetComponent<AudioSource>().Play(44100);
+        Invoke("terminarCancion", GetComponent<AudioSource>().clip.length + 1);
+        crearTimelines();
+        started = true;
     }
 
     void Start()
@@ -38,13 +42,10 @@ public class RythmManager : Singleton<RythmManager>
         started = false;
         currentTime = 0;
         sampleTime = (120f / BPM) * 44100;
-     
+
         currentBeat = 0;
         currentQuality = maxQuality * 0.5f;
-        GetComponent<AudioSource>().Play(44100);
-        Invoke("terminarCancion", GetComponent<AudioSource>().clip.length + 1);
-        crearTimelines();
-        started = true;
+
 
 
     }
@@ -59,7 +60,8 @@ public class RythmManager : Singleton<RythmManager>
         {
             if (currentBeat < totalBeatCount)
             {
-                currentQuality -= 2f * Time.deltaTime;
+                if (GetComponent<AudioSource>().isPlaying)
+                    currentQuality -= 6f * Time.deltaTime;
             }
             if (currentQuality < 0)
             {
@@ -103,17 +105,17 @@ public class RythmManager : Singleton<RythmManager>
             timeLine.GetComponentInChildren<TimeLine>().Stop();
 
         }
-        metagame();
+        pantallaResultados();
 
 
     }
-    void metagame()
+    void pantallaResultados()
     {
-        int ganancia= (int)((currentQuality / maxQuality) * 6000);
-       
-        DataManager.Instance.currentMoney += ganancia;
-        SceneManager.LoadScene("Metagame");
-     
+        ganancia = (int)((currentQuality / maxQuality) * 1500) - 100;
+
+
+        resultados.gameObject.SetActive(true);
+
 
         //UI_SceneNavigator.Instance.showArtistas();
     }

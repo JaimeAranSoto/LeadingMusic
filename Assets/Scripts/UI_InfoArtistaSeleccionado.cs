@@ -13,7 +13,7 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("MostrarDatos", 0, 2);
+        InvokeRepeating("MostrarDatos", 0, 0.3f);
 
     }
 
@@ -32,6 +32,7 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     public void Despedir()
     {
         DataManager.Instance.artistaActual.contratado = false;
+        DataManager.Instance.currentMoney += DataManager.Instance.artistaActual.costoContrato;
         MostrarDatos(DataManager.Instance.artistaActual);
 
     }
@@ -54,12 +55,14 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
             textoAccion.text = "No contratado";
             textoAccion.GetComponentInParent<Button>().interactable = false;
             textoDespedir.text = "Contratar";
+            contratar.image.color = Color.green;
         }
         else
         {
             contratar.onClick.AddListener(Despedir);
             contratar.onClick.RemoveAllListeners();
             contratar.onClick.AddListener(Despedir);
+            contratar.image.color = Color.red;
             textoDespedir.text = "Despedir";
 
             textoAccion.GetComponentInParent<Button>().interactable = true;

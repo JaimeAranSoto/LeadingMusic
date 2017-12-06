@@ -28,7 +28,9 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     [Header("Tienda")]
     public GameObject tienda;
     public GameObject prefabItem;
-
+    [Header("Botón de ir atrás")]
+    [Tooltip("Botón que permite retroceder de menú")]
+    public GameObject btnAtras;
     private List<GameObject> paneles;
 
 
@@ -88,7 +90,7 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     public void showTitulo()
     {
         resetPaneles();
-
+        btnAtras.SetActive(false);
         pantallaTitulo.SetActive(true);
     }
     public void showSeleccionAccion()
@@ -101,6 +103,8 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     public void showMenuPrincipal()
     {
         resetPaneles();
+        btnAtras.SetActive(true);
+
         titulo.text = "Menu Principal";
         panelTitulo.SetActive(true);
         menuPrincipal.SetActive(true);
@@ -186,8 +190,7 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     }
     public void terminarConcierto()
     {
-        DataManager.Instance.artistaActual.concierto.activo = true;
-        DataManager.Instance.artistaActual.concierto.tiempo = DataManager.Instance.artistaActual.tiempoConcierto;
+
         resetPaneles();
         showArtistas();
         UI_InfoArtistaSeleccionado.Instance.MostrarDatos(DataManager.Instance.artistaActual);

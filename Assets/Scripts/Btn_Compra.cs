@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Btn_Compra : MonoBehaviour
 {
+    public Image icono;
     [HideInInspector]
     public InstrumentData instrument;
     // Use this for initialization
@@ -24,6 +25,8 @@ public class Btn_Compra : MonoBehaviour
         {
             transform.GetChild(2).GetChild(0).GetComponent<Text>().text = "MAX NIVEL";
         }
+        icono.sprite = Resources.Load<Sprite>("Iconos/" + instrument.name);
+
     }
 
     void Update()

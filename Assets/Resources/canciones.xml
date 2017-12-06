@@ -6,7 +6,7 @@
 		<tipo1>Sampler</tipo1>
 		<tipo2>Sampler</tipo2>
 		<clipPath>120 - Clean</clipPath>
-		<genero>Rock</genero>
+		<genero>Electro</genero>
 	</Cancion>
 	<Cancion>
 		<name>The unleashed</name>
@@ -14,7 +14,7 @@
 		<tipo1>Sampler</tipo1>
 		<tipo2>Limiter</tipo2>
 		<clipPath>95 - The unleashed</clipPath>
-		<genero>Rock</genero>
+		<genero>Electro</genero>
 	</Cancion>
 	<Cancion>
 		<name>Fast Foot</name>
@@ -23,5 +23,13 @@
 		<tipo2>Sampler</tipo2>
 		<clipPath>128 - Fast Foot</clipPath>
 		<genero>Electro</genero>
+	</Cancion>
+	<Cancion>
+		<name>Move it</name>
+		<BPM>122</BPM>
+		<tipo1>Limiter</tipo1>
+		<tipo2>Limiter</tipo2>
+		<clipPath>122 - Move it</clipPath>
+		<genero>Pop</genero>
 	</Cancion>
 </ArrayOfCancion>

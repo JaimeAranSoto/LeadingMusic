@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ArrayOfCiudad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Ciudad>
+		<distancia>12</distancia>
+		<nombre>King</nombre>
+		<generoFavorito>Electro</generoFavorito>
+		<capacidad>400</capacidad>
+	</Ciudad>
+	<Ciudad>
+		<distancia>70</distancia>
+		<nombre>Saturn</nombre>
+		<generoFavorito>Metal</generoFavorito>
+		<capacidad>450</capacidad>
+	</Ciudad>
+	<Ciudad>
+		<distancia>65</distancia>
+		<nombre>Maluma</nombre>
+		<generoFavorito>Pop</generoFavorito>
+		<capacidad>500</capacidad>
+	</Ciudad>
+	<Ciudad>
+		<distancia>200</distancia>
+		<nombre>St. Gog</nombre>
+		<generoFavorito>Rock</generoFavorito>
+		<capacidad>2500</capacidad>
+	</Ciudad>
+</ArrayOfCiudad>

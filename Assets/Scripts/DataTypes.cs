@@ -34,7 +34,14 @@ public class ArtistaData
     public ArtistaData()
     { }
 }
-
+[Serializable]
+public class Ciudad
+{
+    public int distancia;
+    public string nombre;
+    public ArtistaData.Genre generoFavorito;
+    public int capacidad;
+}
 [Serializable]
 public class InstrumentData
 {

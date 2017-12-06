@@ -11,9 +11,11 @@ public class DataManager : Singleton<DataManager>
     public List<ArtistaData> artistas;
 
     public List<Cancion> canciones;
+    public List<Ciudad> ciudades;
     public Cancion cancionActual;
     public ArtistaData artistaActual; //indica cual es el indice de los datos del artista actual, así las acciones de artista sabe a cual se refiere;
-
+    [HideInInspector]
+    public int fase = 0;
 
     void Start()
     {
@@ -25,6 +27,7 @@ public class DataManager : Singleton<DataManager>
 
         canciones = XMLManager.Deserializar<List<Cancion>>("canciones");
 
+        ciudades = XMLManager.Deserializar<List<Ciudad>>("ciudades");
 
         Invoke("manejarDatos", 0.2f);
         InvokeRepeating("timerVenta", 2, 1);
@@ -76,7 +79,13 @@ public class DataManager : Singleton<DataManager>
     {
         foreach (ArtistaData artista in artistas)
         {
-            artista.concierto.substractTiempo(1);
+            if (artista.concierto.activo)
+            {
+                if (!artista.concierto.substractTiempo(1))
+                {
+                    currentMoney += artista.concierto.ganancia;
+                }
+            }
         }
     }
 

@@ -7,20 +7,28 @@ public class UI_BarraArtista : MonoBehaviour
 {
     public ArtistaData data;
     private Text text;
-    private Scrollbar bar;
+  
     // Use this for initialization
     void Start()
     {
         text = GetComponentInChildren<Text>();
-        bar = GetComponentInChildren<Scrollbar>();
+   
         text.text = data.nombre;
-        bar.size = (float)data.talento / 100;
+     
         GetComponent<Button>().onClick.AddListener(Click);
     }
     // Update is called once per frame
     void Update()
     {
+        if (data.contratado)
+        {
+            GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            GetComponent<Image>().color = new Color(1, 1, 1, 0.2f);
 
+        }
     }
     void Click()
     {

@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
+using TMPro;
 
 public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
 {
+    public AudioSource chaching;
     [Header("Titulo")]
     public GameObject panelTitulo;
     public GameObject pantallaTitulo;
@@ -23,11 +26,14 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     public GameObject prefabCancion;
     [Header("Panel de concierto")]
     public GameObject concierto;
+    public GameObject ads;
     [Header("Panel de ensayo")]
     public GameObject ensayo;
     [Header("Tienda")]
     public GameObject tienda;
     public GameObject prefabItem;
+    public GameObject bienvenida;
+
     [Header("Botón de ir atrás")]
     [Tooltip("Botón que permite retroceder de menú")]
     public GameObject btnAtras;
@@ -40,6 +46,11 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     // Use this for initialization
     void Start()
     {
+        Advertisement.Initialize("1635368", true);
+        if (!PlayerPrefs.HasKey("Bienvenida"))
+        {
+            PlayerPrefs.SetInt("Bienvenida", 0);
+        }
         paneles = new List<GameObject>();
         paneles.Add(panelTitulo);
         paneles.Add(pantallaTitulo);
@@ -51,15 +62,18 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
         paneles.Add(concierto);
         paneles.Add(ensayo);
         paneles.Add(tienda);
+        paneles.Add(ads);
+        paneles.Add(bienvenida);
 
         titulo = panelTitulo.GetComponentInChildren<Text>();
         showTitulo();
     }
 
     // Update is called once per frame
+    
     void Update()
     {
-        panelTitulo.transform.GetChild(1).GetComponent<Text>().text = "$" + DataManager.Instance.currentMoney;
+        panelTitulo.transform.GetChild(1).GetComponent<TMP_Text>().text = "$" + DataManager.Instance.currentMoney;
     }
 
     public void showArtistas()
@@ -86,6 +100,23 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
 
 
         DataManager.Instance.artistaActual = list[0];
+    }
+    public void deTituloAMenu()
+    {
+        if (PlayerPrefs.GetInt("Bienvenida") == 1)
+        {
+            showMenuPrincipal();
+        }
+        else
+        {
+            showBienvenida();
+            PlayerPrefs.SetInt("Bienvenida", 1);
+        }
+    }
+    public void showBienvenida()
+    {
+        resetPaneles();
+        bienvenida.SetActive(true);
     }
     public void showTitulo()
     {
@@ -159,6 +190,7 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
         panelTitulo.SetActive(true);
         titulo.text = "Elige ciudad";
         concierto.SetActive(true);
+       
     }
     public void showEnsayo()
     {

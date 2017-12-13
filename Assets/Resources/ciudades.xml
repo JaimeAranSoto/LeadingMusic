@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ArrayOfCiudad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Ciudad>
-		<distancia>12</distancia>
+		<distancia>3</distancia>
 		<nombre>King</nombre>
 		<generoFavorito>Electro</generoFavorito>
 		<capacidad>400</capacidad>

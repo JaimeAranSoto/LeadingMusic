@@ -10,6 +10,8 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     public Text textoAccion;
     public Text textoSueldo;
     public Text textoDespedir;
+    public Transform mainUI;
+    public Text extras;
     // Use this for initialization
     void Start()
     {
@@ -25,7 +27,7 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     public void Contratar()
     {
         DataManager.Instance.contratarArtista(DataManager.Instance.artistaActual);
-
+        Instantiate(Resources.Load<GameObject>("Contrato"), mainUI);
         MostrarDatos(DataManager.Instance.artistaActual);
 
     }
@@ -43,6 +45,7 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
     }
     public void MostrarDatos(ArtistaData data)
     {
+        extras.text = "Talento: " + data.talento + "\nPopularidad: " + data.influencia;
         Button contratar = textoDespedir.GetComponentInParent<Button>();
 
         textoGenero.text = data.genero.ToString();
@@ -70,10 +73,27 @@ public class UI_InfoArtistaSeleccionado : Singleton<UI_InfoArtistaSeleccionado>
             textoAccion.text = "¡A rockear!";
             if (data.concierto.activo)
             {
-                System.TimeSpan t = System.TimeSpan.FromSeconds(data.concierto.tiempo);
-                textoAccion.text = "En concierto\n" + t.ToString();
+                System.TimeSpan t = System.TimeSpan.FromSeconds(data.concierto.tiempo - (int)data.concierto.newTime);
+                textoAccion.text = "En concierto\n" + t.Minutes.ToString("#00") + ":" + t.Seconds.ToString("#00");
                 textoAccion.GetComponentInParent<Button>().interactable = false;
             }
+        }
+        if (data.concierto.recoger)
+        {
+            textoAccion.text = ("Recoger ganancia\n$" + data.concierto.ganancia);
+            textoAccion.GetComponentInParent<Button>().onClick.AddListener(() => data.concierto.recogerDinero(data));
+            textoAccion.GetComponentInParent<Button>().onClick.RemoveListener(UI_SceneNavigator.Instance.showSeleccionAccion);
+            textoAccion.GetComponentInParent<Button>().image.color = Color.magenta;
+            textoAccion.color = Color.white;
+
+        }
+        else
+        {
+            textoAccion.GetComponentInParent<Button>().onClick.AddListener(UI_SceneNavigator.Instance.showSeleccionAccion);
+            textoAccion.GetComponentInParent<Button>().onClick.RemoveListener(() => data.concierto.recogerDinero(data));
+            textoAccion.color = Color.black;
+            textoAccion.GetComponentInParent<Button>().image.color = Color.white;
+
         }
         textoSueldo.text = "Porcentaje de ganancia: <b>" + (data.porcentajeGanancias).ToString() + "%</b>";
     }

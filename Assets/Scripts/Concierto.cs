@@ -1,13 +1,22 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
+using UnityEngine.Events;
+
 [Serializable]
 public class Concierto
 {
     public int tiempo;
     public int ganancia;
     public bool activo;
+    [XmlIgnore]
+    public DateTime date;
+    [XmlIgnore]
+    public double newTime;
+    [XmlIgnore]
+    public bool recoger = false;
     // Use this for initialization
     void Start()
     {
@@ -20,17 +29,24 @@ public class Concierto
     {
 
     }
-    public bool substractTiempo(int n)
+    public bool substractTiempo()
     {
-        if (activo)
-        {
-            tiempo -= n;
+        newTime = (DateTime.UtcNow - date).TotalSeconds;
 
-        }
-        if (tiempo < 0)
+
+        return (newTime < tiempo);
+    }
+    public void recogerDinero(ArtistaData artista)
+    {
+        if (recoger)
         {
-            activo = false;
+            UI_SceneNavigator.Instance.chaching.Play();
+            Debug.Log(DataManager.Instance.currentMoney + " + " + artista.concierto.ganancia + " = " + (DataManager.Instance.currentMoney + artista.concierto.ganancia));
+            DataManager.Instance.currentMoney += artista.concierto.ganancia;
+
+            PlayerPrefs.SetInt("Money", DataManager.Instance.currentMoney);
+            recoger = false;
         }
-        return activo;
+
     }
 }

@@ -29,6 +29,13 @@ public class UI_BarraArtista : MonoBehaviour
             GetComponent<Image>().color = new Color(1, 1, 1, 0.2f);
 
         }
+        if(data == DataManager.Instance.artistaActual)
+        {
+            text.color = Color.green;
+        }else
+        {
+            text.color = Color.white;
+        }
     }
     void Click()
     {

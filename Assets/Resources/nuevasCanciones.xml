@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ArrayOfCancion xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Cancion>
+		<name>Clean</name>
+		<BPM>120</BPM>
+		<tipo1>Sampler</tipo1>
+		<nivel1>1</nivel1>
+		<tipo2>Sampler</tipo2>
+		<nivel2>1</nivel2>
+		<clipPath>120 - Clean</clipPath>
+		<genero>Electro</genero>
+	</Cancion>
+	<Cancion>
+		<name>The unleashed</name>
+		<BPM>95</BPM>
+		<tipo1>Sampler</tipo1>
+		<nivel1>1</nivel1>
+		<tipo2>Limiter</tipo2>
+		<nivel2>1</nivel2>
+		<clipPath>95 - The unleashed</clipPath>
+		<genero>Electro</genero>
+	</Cancion>
+	<Cancion>
+		<name>Fast Foot</name>
+		<BPM>128</BPM>
+		<tipo1>Limiter</tipo1>
+		<nivel1>1</nivel1>
+		<tipo2>Sampler</tipo2>
+		<nivel2>2</nivel2>
+		<clipPath>128 - Fast Foot</clipPath>
+		<genero>Electro</genero>
+	</Cancion>
+	<Cancion>
+		<name>Move it</name>
+		<BPM>122</BPM>
+		<tipo1>Limiter</tipo1>
+		<nivel1>3</nivel1>
+		<tipo2>Limiter</tipo2>
+		<nivel2>3</nivel2>
+		<clipPath>122 - Move it</clipPath>
+		<genero>Pop</genero>
+	</Cancion>
+</ArrayOfCancion>

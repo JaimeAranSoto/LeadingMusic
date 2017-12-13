@@ -33,7 +33,7 @@ public class UI_InfoCancion : Singleton<UI_InfoCancion>
     public void mostrarActual()
     {
         Cancion c = DataManager.Instance.cancionActual;
-        if (c != null)
+        if (c.clip != null)
         {
             bpm.text = "BPM: <color=lime>" + c.BPM + "</color>";
 

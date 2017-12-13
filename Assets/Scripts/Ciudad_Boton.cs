@@ -18,11 +18,14 @@ public class Ciudad_Boton : MonoBehaviour
         if (ciudad == null)
         {
             Debug.Log("Un botón de ciudad tiene un dato nulo!");
-        }else
+        }
+        else
         {
             texto.text = ciudad.nombre;
         }
         boton.onClick.AddListener(mostrarDatos);
+        boton.onClick.AddListener(() =>
+        Uñeta.Instance.SetPosition(transform));
 
     }
 
@@ -32,6 +35,6 @@ public class Ciudad_Boton : MonoBehaviour
     }
     public void mostrarDatos()
     {
-        InfoCiudad.Instance.mostrarDatos(ciudad,GetComponent<Image>().color);
+        InfoCiudad.Instance.mostrarDatos(ciudad, GetComponent<Image>().color);
     }
 }

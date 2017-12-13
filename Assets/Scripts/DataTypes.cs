@@ -15,7 +15,7 @@ public class ArtistaData
 
     public string nombre;
     public Genre genero;
-    [XmlIgnore]
+    
     public bool contratado;
     [XmlIgnore]
     public Disco disco;
@@ -26,7 +26,7 @@ public class ArtistaData
     public int porcentajeGanancias;
     [Range(0, 100)]
     public int talento;
-    [Range(1, 5)]
+    [Range(1, 50)]
     public int influencia;
     [XmlIgnore]
     public int costoContrato = 200;

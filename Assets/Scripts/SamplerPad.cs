@@ -18,6 +18,7 @@ public class SamplerPad : TimeLine
     // Update is called once per frame
     void Update()
     {
+
         if (checkInput())
         {
             anim.SetTrigger("Pulsado");
@@ -33,6 +34,19 @@ public class SamplerPad : TimeLine
     }
     public override void Beat(double sampleTime)
     {
+        if (nivel == 1)
+        {
+            anim.speed = 1;
+        }
+        else if (nivel == 2)
+        {
+            anim.speed = 1.7f;
+        }
+        else if (nivel == 3)
+        {
+            anim.speed = 2.5f;
+        }
+
         if (isNext)
         {
             anim.SetTrigger("Beat");
@@ -47,6 +61,7 @@ public class SamplerPad : TimeLine
     public void Perder()
     {
         RythmManager.Instance.currentQuality -= 6;
+        Instantiate(Resources.Load("Timelines/Pad Error"), transform);
     }
 
     bool checkInput()

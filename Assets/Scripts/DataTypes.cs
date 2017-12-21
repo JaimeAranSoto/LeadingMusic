@@ -19,7 +19,7 @@ public class ArtistaData
     public bool contratado;
     [XmlIgnore]
     public Disco disco;
-    [XmlIgnore]
+  
     public Concierto concierto = new Concierto();
     public int tiempoConcierto = 60;
     [Range(0, 100)]
@@ -47,6 +47,7 @@ public class InstrumentData
 {
     public enum Timeline { Sampler, Limiter };
     public Timeline name;
+    [SerializeField]
     public int level;
 
     public int[] cost = new int[5];

@@ -22,11 +22,14 @@ public class BotonGrabar : MonoBehaviour
         {
             b.interactable = true;
             t.text = "Grabar";
+            t.color = Color.black;
+
         }
         else
         {
             b.interactable = false;
             t.text = "Instrumentos requeridos";
+            t.color = Color.white;
         }
 
     }

@@ -8,14 +8,15 @@ using UnityEngine.Events;
 [Serializable]
 public class Concierto
 {
+    public float asistencia;
     public int tiempo;
     public int ganancia;
     public bool activo;
-    [XmlIgnore]
+    [SerializeField]
     public DateTime date;
-    [XmlIgnore]
+
     public double newTime;
-    [XmlIgnore]
+
     public bool recoger = false;
     // Use this for initialization
     void Start()
@@ -36,16 +37,18 @@ public class Concierto
 
         return (newTime < tiempo);
     }
-    public void recogerDinero(ArtistaData artista)
+    public void recogerDinero()
     {
         if (recoger)
         {
             UI_SceneNavigator.Instance.chaching.Play();
-            Debug.Log(DataManager.Instance.currentMoney + " + " + artista.concierto.ganancia + " = " + (DataManager.Instance.currentMoney + artista.concierto.ganancia));
-            DataManager.Instance.currentMoney += artista.concierto.ganancia;
+            
+            DataManager.Instance.currentMoney += ganancia;
 
             PlayerPrefs.SetInt("Money", DataManager.Instance.currentMoney);
             recoger = false;
+            XMLManager.Serializar(DataManager.Instance.artistas, "artistas");
+            return;
         }
 
     }

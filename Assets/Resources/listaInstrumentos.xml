@@ -18,6 +18,7 @@
       <int>0</int>
       <int>1400</int>
       <int>1300</int>
+	  <int>1420</int>
     </cost>
   </InstrumentData>
 </ArrayOfInstrumentData>

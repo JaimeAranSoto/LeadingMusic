@@ -1,21 +1,19 @@
-<?xml version="1.0" encoding="Windows-1252"?>
-<ArrayOfArtistaData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ArtistaData>
-    <nombre>Unclamped Boys</nombre>
-    <genero>Electro</genero>
-    <contratado>true</contratado>
-    <tiempoConcierto>23</tiempoConcierto>
-    <porcentajeGanancias>67</porcentajeGanancias>
-    <talento>58</talento>
-    <influencia>4</influencia>
-  </ArtistaData>
-  <ArtistaData>
-    <nombre>Demokratikos</nombre>
-    <genero>Pop</genero>
-    <contratado>false</contratado>
-    <tiempoConcierto>49</tiempoConcierto>
-    <porcentajeGanancias>55</porcentajeGanancias>
-    <talento>23</talento>
-    <influencia>1</influencia>
-  </ArtistaData>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ArrayOfArtistaData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ArtistaData>
+		<nombre>Unclamped Boys</nombre>
+		<genero>Electro</genero>
+		<tiempoConcierto>23</tiempoConcierto>
+		<porcentajeGanancias>67</porcentajeGanancias>
+		<talento>58</talento>
+		<influencia>4</influencia>
+	</ArtistaData>
+	<ArtistaData>
+		<nombre>Demokratikos</nombre>
+		<genero>Pop</genero>
+		<tiempoConcierto>49</tiempoConcierto>
+		<porcentajeGanancias>55</porcentajeGanancias>
+		<talento>23</talento>
+		<influencia>1</influencia>
+	</ArtistaData>
 </ArrayOfArtistaData>

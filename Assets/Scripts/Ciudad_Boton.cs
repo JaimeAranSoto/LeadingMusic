@@ -37,4 +37,13 @@ public class Ciudad_Boton : MonoBehaviour
     {
         InfoCiudad.Instance.mostrarDatos(ciudad, GetComponent<Image>().color);
     }
+    public void OnEnable()
+    {
+        ciudad = DataManager.Instance.ciudades[indiceCiudad];
+
+        if (indiceCiudad == 0)
+        {
+            mostrarDatos();
+        }
+    }
 }

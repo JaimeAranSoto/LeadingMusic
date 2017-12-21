@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ArrayOfCiudad xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<Ciudad>
-		<distancia>3</distancia>
+		<distancia>40</distancia>
 		<nombre>King</nombre>
 		<generoFavorito>Electro</generoFavorito>
 		<capacidad>400</capacidad>
@@ -14,7 +14,7 @@
 	</Ciudad>
 	<Ciudad>
 		<distancia>65</distancia>
-		<nombre>Maluma</nombre>
+		<nombre>Denvuer</nombre>
 		<generoFavorito>Pop</generoFavorito>
 		<capacidad>500</capacidad>
 	</Ciudad>

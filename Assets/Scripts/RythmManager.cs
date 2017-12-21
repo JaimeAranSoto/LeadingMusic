@@ -51,8 +51,11 @@ public class RythmManager : Singleton<RythmManager>
     }
     void crearTimelines()
     {
-        Instantiate(Resources.Load("Timelines/" + DataManager.Instance.cancionActual.tipo1), timeLines[0].transform);
-        Instantiate(Resources.Load("Timelines/" + DataManager.Instance.cancionActual.tipo2), timeLines[1].transform);
+       GameObject time1 =  Instantiate(Resources.Load("Timelines/" + DataManager.Instance.cancionActual.tipo1) as GameObject, timeLines[0].transform);
+        time1.GetComponent<TimeLine>().nivel = DataManager.Instance.cancionActual.nivel1;
+        GameObject time2 =  Instantiate(Resources.Load("Timelines/" + DataManager.Instance.cancionActual.tipo2) as GameObject, timeLines[1].transform);
+        time2.GetComponent<TimeLine>().nivel = DataManager.Instance.cancionActual.nivel2;
+
     }
     void Update()
     {
@@ -89,7 +92,7 @@ public class RythmManager : Singleton<RythmManager>
     }
     void generateBeats()
     {
-        // Debug.Log((music.time - timePassed) * 120f);
+       
 
         foreach (GameObject timeLine in timeLines)
         {

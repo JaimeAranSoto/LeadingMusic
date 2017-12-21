@@ -14,8 +14,9 @@ public class Sampler : TimeLine
         foreach (Transform child in transform)
         {
             pads.Add(child.GetComponent<SamplerPad>());
+            child.GetComponent<SamplerPad>().nivel = nivel;
         }
-        actualIndex = 0;
+        actualIndex = Random.Range(0, 6);
   
 
     }

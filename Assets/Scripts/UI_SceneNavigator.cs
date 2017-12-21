@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Advertisements;
 using TMPro;
+using UnityEngine.Events;
 
 public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
 {
@@ -38,6 +39,8 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
     [Tooltip("Botón que permite retroceder de menú")]
     public GameObject btnAtras;
     private List<GameObject> paneles;
+    [HideInInspector]
+    public UnityEvent mostrarEnsayo;
 
 
 
@@ -198,6 +201,7 @@ public class UI_SceneNavigator : Singleton<UI_SceneNavigator>
         panelTitulo.SetActive(true);
         ensayo.SetActive(true);
         titulo.text = "Elige tipo de ensayo";
+        mostrarEnsayo.Invoke();
 
     }
     public void showTienda()

@@ -40,7 +40,7 @@ public class UI_InfoCancion : Singleton<UI_InfoCancion>
 
             System.TimeSpan t = System.TimeSpan.FromSeconds((int)c.clip.length);
 
-            duracion.text = t.ToString() + "s";
+            duracion.text = t.Minutes.ToString("#00") + ":" + t.Seconds.ToString("#00") + "s";
             icono1.sprite = Resources.Load<Sprite>("Iconos/" + c.tipo1);
 
             icono2.sprite = Resources.Load<Sprite>("Iconos/" + c.tipo2);

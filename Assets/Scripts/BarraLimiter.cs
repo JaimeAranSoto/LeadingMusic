@@ -36,7 +36,7 @@ public class BarraLimiter : MonoBehaviour
     {
         if (col.gameObject.tag == "Linea")
         {
-            transform.localScale -= new Vector3((1f + (RythmManager.Instance.BPM / 120)*0.4f) * Time.deltaTime, 0, 0);
+            transform.localScale -= new Vector3((1.34f + (RythmManager.Instance.BPM / 120)*0.4f) * Time.deltaTime, 0, 0);
         }
     }
 }

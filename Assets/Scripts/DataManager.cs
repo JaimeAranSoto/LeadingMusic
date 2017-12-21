@@ -22,10 +22,12 @@ public class DataManager : Singleton<DataManager>
 
     void Start()
     {
+
         if (!PlayerPrefs.HasKey("ConciertosRestantes"))
         {
             PlayerPrefs.SetInt("ConciertosRestantes", conciertosRestantes);
-        }else
+        }
+        else
         {
             conciertosRestantes = PlayerPrefs.GetInt("ConciertosRestantes");
         }
@@ -48,6 +50,7 @@ public class DataManager : Singleton<DataManager>
 
         Invoke("manejarDatos", 0.2f);
         InvokeRepeating("timerConcierto", 0, 1);
+        artistaActual = artistas[0];
     }
 
     // Update is called once per frame
@@ -57,7 +60,7 @@ public class DataManager : Singleton<DataManager>
         if (currentMoney > data.cost[data.level + 1] && data.level < data.cost.Length)
         {
             data.level++;
-            XMLManager.Serializar(instruments, "Assets/Resources/listaInstrumentos.xml");
+            XMLManager.Serializar(instruments, "artistas");
 
         }
     }
@@ -69,7 +72,7 @@ public class DataManager : Singleton<DataManager>
             currentMoney -= artista.costoContrato;
             PlayerPrefs.SetInt("Money", currentMoney);
             artista.contratado = true;
-            XMLManager.Serializar(artistas, "Assets/Resources/artistas.xml");
+            XMLManager.Serializar(artistas, "artistas");
 
         }
 
@@ -82,6 +85,7 @@ public class DataManager : Singleton<DataManager>
             if (currentMoney > data.cost[data.level + 1] && data.level < data.cost.Length)
             {
                 data.level++;
+                XMLManager.Serializar(instruments, "listaInstrumentos");
                 currentMoney -= data.cost[data.level];
                 PlayerPrefs.SetInt("Money", currentMoney);
             }
@@ -143,4 +147,27 @@ public class DataManager : Singleton<DataManager>
         PlayerPrefs.SetInt("Money", currentMoney);
     }
 
+    public void ComprarTalento(int valor)
+    {
+        if (currentMoney >= valor)
+        {
+            artistaActual.talento += UnityEngine.Random.Range(1, 4);
+            currentMoney -= valor;
+            PlayerPrefs.SetInt("Money", currentMoney);
+            XMLManager.Serializar(artistas, "artistas");
+            TextoDinero.Instance.Animar();
+
+        }
+    }
+    public void ComprarPopularudad(int valor)
+    {
+        if (currentMoney >= valor)
+        {
+            artistaActual.influencia += UnityEngine.Random.Range(2, 13);
+            currentMoney -= valor;
+            PlayerPrefs.SetInt("Money", currentMoney);
+            XMLManager.Serializar(artistas, "artistas");
+            TextoDinero.Instance.Animar();
+        }
+    }
 }
